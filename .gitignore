@@ -1,0 +1,48 @@
+# Svn files
+.svn/
+
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+
+#ignore all files in the META-INF/ directory
+META-INF/
+#ignore all files in the WEB-INF/ directory
+WEB-INF/
+#ignore all files in the backup/ directory
+backup/
+#ignore all files in the css/ directory
+css/
+#ignore all files in the js/ directory
+js/
+#ignore all files in the library/ directory
+library/
+
+node_modules/
+LengjingMonitor/
+Servers/
+src/
+src0/
+src2/
+src3/
+.metadata/

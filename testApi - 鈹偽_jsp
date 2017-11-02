@@ -1,0 +1,101 @@
+﻿<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8" import="java.util.*" %>
+<%@page isELIgnored="false"%>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Insert title here</title>
+<script src='http://cdn.bootcss.com/jquery/2.2.1/jquery.js'></script>
+<script src='http://cdn.bootcss.com/d3/3.5.16/d3.min.js'></script>
+</head>
+<body>
+JBS咨询（北京）有限公司
+	<script>
+	var queryCompany = "BC教育咨询（北京）有限公司";
+    $.post("http://localhost:8080/hh/index/function1ForAjax",
+        {
+          compNameAjax: queryCompany 
+        },
+        function(data,status){
+        //   alert("数据：" + data + "\n状态：" + status);
+	//console.log("i am the marks");
+	var graphArray = data.results[0].data;
+        graphArray.forEach(function(d) {
+            //console.log(d.graph.nodes);
+        });
+          //console.log("company info: " + data["results"][0]);
+          console.log(data);
+	  var rawData = data.results[0].data;
+	  console.log(iniForceData(rawData));
+        },
+	"json"
+    );
+
+	d3.select('body')
+            .append('p')
+            .text('hey');
+
+    //start iniForceData =====================
+        function iniForceData(rawData) {
+            var forceData = {};
+            forceData.links = [];
+            forceData.nodes = [];
+
+            forceData.nodesIdSet = d3.set();
+            forceData.linksIdSet = d3.set();
+
+            rawData.forEach(function(item) {
+                var rawNodesArray = item.graph.nodes;
+                // console.log(rawNodesArray);
+                rawNodesArray.forEach(function(rawNode) {
+                    // console.log(rawNode.id);
+                    if (!forceData.nodesIdSet.has(rawNode.id)) {
+                        forceData.nodesIdSet.add(rawNode.id);
+                        forceData.nodes.push(rawNode);
+                    }
+                });
+                var rawRelationshipsArray = item.graph.relationships;
+                // console.log(rawRelationshipsArray);
+                if (rawRelationshipsArray.length) {
+                    rawRelationshipsArray.forEach(function(rawLink) {
+                        // console.log(rawLink.id);
+                        if (!forceData.linksIdSet.has(rawLink.id)) {
+                            forceData.linksIdSet.add(rawLink.id);
+                            forceData.links.push(rawLink);
+                        }
+                    });
+                } else {
+                    // console.log('isolate nodes without links');
+                }
+
+            });
+            // console.log(forceData);
+            return forceData;
+        }
+        //end iniForceData =====================
+
+    //var compNameAjax = "JBS咨询（北京）有限公司";
+
+    //d3.text("http://localhost:8080/hh/index/function1ForAjax")
+    //.header("Content-type", "application/x-www-form-urlencoded")
+    //.post("JBS咨询（北京）有限公司", function(error, text) { console.log(text); });
+
+    //d3.xhr("http://localhost:8080/hh/index/function1ForAjax")
+        //.header("Content-type", "application/json")
+        //.post("compNameAjax=JBS咨询（北京）有限公司", function(error, jsonData) {
+	    
+           // console.log("output: " + jsonData);
+        //});
+
+    //var compNameAjax = "JBS咨询（北京）有限公司";
+
+    //d3.xhr("http://localhost:8080/hh/index/function1ForAjax?compNameAjax=JBS咨询（北京）有限公司")
+        //.header("Content-type", "application/x-www-form-urlencoded")
+        //.post(compNameAjax, function(error, jsonData) {
+            //console.log(jsonData);
+        //});
+    </script>
+</body>
+</html>

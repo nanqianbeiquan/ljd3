@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        
+
+        <script type="text/javascript" src="./js/jquery-1.12.1.js"></script>
+        <script type="text/javascript" src="./js/layout.js"></script>
+        <link type="text/css" rel="stylesheet" href="./css/layout.css">
+        <link type="text/css" rel="stylesheet" href="./css/monitor/panorama.css">
+    </head>
+    <body class="ljzx_page back_gray">
+        <div id="nav_head" class="nav_head white">
+            <div class="head_back">
+                <div class="back_color"></div>
+            </div>
+            <div class=" head_right">
+                <div class="inline_div">
+                    <div class="message_count">
+                        <div class="inline_div">26</div>
+                    </div>
+                    <div class="message_img inline_div">
+                        
+                    </div>
+                </div>
+                <div  class="inline_div">
+                    <div class="user_img inline_div">
+                        <div class="user_menu_block">
+                            <div class="user_menu">
+                                <a class="menu" href="#">
+                                    <img class="inline_div" src="./img/user_config.png"/>
+                                    <div class="inline_div value">设置</div>
+                                </a>
+                                <a class="menu" href="#">
+                                    <img class="inline_div" src="./img/user_about.png"/>
+                                    <div class="inline_div value">关于我们</div>
+                                </a>
+                                <a class="menu" href="#">
+                                    <img class="inline_div" src="./img/user_note.png"/>
+                                    <div class="inline_div value">意见反馈</div>
+                                </a>
+                                <a class="menu" href="#">
+                                    <img class="inline_div" src="./img/user_quit.png"/>
+                                    <div class="inline_div value">退出</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="account inline_div">
+                    <span>账户号:</span>
+                    <span class="user_account">ABCDEFGHIJKLMNOPQRSTUVWXYZ</span>
+                </div>
+                </div>
+            <div class=" head_left">
+                <a href="#"><img class="inline-div" src="./img/logo.png"/></a>
+                <div class="inline_div search_company_head">
+                    <input type="text" class="search_input" placeholder="请输入企业名"/><div class="search_btn inline_div"></div>
+                </div>
+            </div>
+        </div>
+        <div class="body_content_5">
+            <div class="body_center ">
+                <div class="body_block_2 block_shadow">
+                    <div class="nav_bar">
+                        <div class="back_block">
+                            <div class="inline_div">
+                                <div class="for_back_btn"></div>
+                            </div>
+                        </div>
+                        <span><a href="#">首页</a></span>
+                        <span>></span>
+                         <span><a href="#">监控企业列表</a></span>
+                        <span>></span>
+                         <span><a href="#">监控企业详情</a></span>
+                        <span>></span>
+                        <span class="current_nav">司法全景图</span>
+                    </div>
+
+                    
+                    <router-view></router-view>
+            </div>
+        </div>
+        <div id="loadingAnimation">
+            <div id="preloader5"></div>
+        </div>
+        <style>
+            *{-webkit-box-sizing: content-box;-moz-box-sizing: content-box;box-sizing: content-box;}
+        </style>
+        <script type="text/javascript" src="LengjingMonitor2/js/app/panorama.js"></script>
+        
+        
+    </body>
+</html>
